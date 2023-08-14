@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+</head>
+<body>
+    <h1 th:text="${user.uid != null} ? 'Edit User' : 'Add New User'"></h1>
+
+    <form action="#" th:action="@{/users/add}" th:object="${user}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" id="name" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" th:field="*{password}" id="password" required><br><br>
+
+        <label for="size">Size:</label>
+        <input type="number" th:field="*{size}" id="size" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
